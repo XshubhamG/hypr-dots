@@ -1,0 +1,115 @@
+[user]
+	name = Shubham Giri
+	email = shubhammgiri3@gmail.com
+  username = xshubhamg
+
+[init]
+	defaultBranch = main
+
+[core]
+  compression = 9
+  editor = nvim
+  whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	pager = bat --paging=always
+
+[commit]
+  template = ~/dotfiles/.config/git/template
+
+[advice]
+  addEmptyPathspec = false
+  pushNonFastForward = false
+  statusHints = false
+
+[diff]
+  context = 3
+  renames = copies
+  interHunkContent = 10
+	colorMoved = dimmed-zebra
+
+[blame]
+    coloring = highlightRecent
+    date = relative
+
+[push]
+  autoSetupRemote = true
+  default = current
+
+[log]
+  abbrevCommit = true
+  graphColors = blue, yellow, cyan, magenta, green, red
+
+[rerere]
+	enabled = 1
+	autoupdate = 1
+
+[color "status"]
+	added = 10 normal
+	changed = 11 normal
+	untracked = 8 normal
+  deleted = red
+	unmerged = 9 normal
+	branch = 12 normal
+	updated = 10 normal
+	localbranch = 12 normal
+	header = normal
+	remotebranch = 6 normal
+	nobranch = 1 normal
+
+[color "decorate"]
+	HEAD = 7 4
+	branch = 12 normal
+	tag = 5 normal
+	remotebranch = 6 normal
+	stash = 3 normal
+	grafted = 1 normal
+
+[color "blame"]
+  highlightRecent = black bold,1 year ago,white,1 month ago,default,7 days ago,blue
+
+[color "branch"]
+	current = 15 4
+	local = 12 normal
+	remote = 6 normal
+	plain = normal
+	upstream = 6 normal
+
+[color "diff"]
+	meta = 8 normal
+	frag = 8 normal
+	context = normal
+	whitespace = normal 3
+	old = 1 0
+	commit = 3 normal
+	newMoved = 11 0
+	oldMovedAlternativeDimmed = 6 0 dim
+	oldMovedAlternative = 6 0
+	contextBold = normal bold
+	newBold = 10 0 bold
+	contextDimmed = normal dim
+	oldMoved = 3 0
+	oldBold = 1 0 bold
+	newMovedDimmed = 11 normal
+	func = 8 normal
+	newDimmed = 10 normal
+	newMovedAlternative = 14 0
+	new = 10 0
+	newMovedAlternativeDimmed = 11 normal
+	oldMovedDimmed = 3 0 dim
+	oldDimmed = 1 0 dim
+
+
+[url "git@github.com:xshubhamg/"]
+  insteadOf = "sg:"
+
+[url "git@github.com:"]
+  insteadOf = "gh:"
+[color "remote"]
+	hint = 8 normal
+	success = 10 normal
+	error = 9 normal
+	warning = 11 normal
+[color "interactive"]
+	header = 8 normal bold
+	prompt = 15 4
+	help = 8 normal
+	error = 9 normal
