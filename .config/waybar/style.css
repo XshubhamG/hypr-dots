@@ -1,0 +1,175 @@
+@import "mocha.css";
+* {
+  font-family: "JetBrainsMono Nerd Font Propo";
+  font-size: 14px;
+}
+
+window#waybar {
+  background-color: @base;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 15px 7px;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+#workspaces button {
+  font-size: 20px;
+  padding: 0 20px;
+}
+
+/* For individual workspace colors */
+#workspaces button:nth-child(1) {
+  color: @red; /* Workspace 1 */
+}
+
+#workspaces button:nth-child(1).active {
+  color: @base;
+  background-color: @red;
+}
+
+#workspaces button:nth-child(2) {
+  color: @green; /* Workspace 2 */
+}
+
+#workspaces button:nth-child(2).active {
+  color: @base;
+  background-color: @green;
+}
+
+#workspaces button:nth-child(3) {
+  color: @blue; /* Workspace 3 */
+}
+
+#workspaces button:nth-child(3).active {
+  color: @base;
+  background-color: @blue;
+}
+
+#workspaces button:nth-child(4) {
+  color: @maroon; /* Workspace 4 */
+}
+
+#workspaces button:nth-child(4).active {
+  color: @base;
+  background-color: @maroon;
+}
+
+#workspaces button:nth-child(5) {
+  color: @lavender; /* Workspace 5 */
+}
+
+#workspaces button:nth-child(5).active {
+  color: @base;
+  background-color: @lavender;
+}
+
+#workspaces button:nth-child(6) {
+  color: @yellow; /* Workspace 6 */
+}
+
+#workspaces button:nth-child(6).active {
+  color: @base;
+  background-color: @yellow;
+}
+
+#clock {
+  color: @peach;
+}
+
+#battery {
+  color: @green;
+}
+
+#battery,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#custom-power,
+#custom-music,
+#network,
+#bluetooth,
+#custom-notification,
+#pulseaudio {
+  padding: 0 6px;
+}
+
+#memory {
+  color: @yellow;
+}
+
+#window,
+#workspaces {
+  margin: 0 6px;
+  background-color: transparent;
+  font-weight: bold;
+  border-radius: 5em / 5em;
+  padding: 0 10px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0;
+}
+
+@keyframes blink {
+  to {
+    background-color: #ffffff;
+    color: @base;
+  }
+}
+
+label:focus {
+  background-color: @base;
+}
+
+#network.disconnected {
+  background-color: #f38ba8;
+}
+
+#pulseaudio {
+  color: @pink;
+}
+
+#pulseaudio.muted {
+  background-color: #90b1b1;
+  color: #2a5c45;
+}
+
+#custom-power {
+  color: @base;
+  background-color: @red;
+}
+
+#bluetooth {
+  color: @teal;
+}
+
+#bluetooth .icon {
+  color: @base;
+  background-color: @blue;
+  border-radius: 5em / 5em;
+  padding: 0 10px;
+}
+
+#network {
+  color: @mauve;
+}
+
+#custom-notification {
+  color: @lavender;
+}
+
+#tray {
+  padding: 0 10px;
+}

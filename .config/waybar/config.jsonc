@@ -1,0 +1,163 @@
+{
+  "layer": "top",
+  "position": "top",
+  "margin-top": 5,
+  "margin-left": 5,
+  "margin-right": 5,
+  "spacing": 4,
+  "height": 28,
+  "reload_style_on_change": true,
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["clock", "tray"],
+  "modules-right": [
+    "pulseaudio",
+    "network",
+    "bluetooth",
+    "memory",
+    "battery",
+    "custom/notification",
+  ],
+
+  "backlight": {
+    "format": "{percent}% {icon}",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+  },
+
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "on-click": "activate",
+    "all-outputs": true,
+    "active-only": false,
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": [],
+    },
+    "format": "{icon}",
+    "format-icons": {
+      "1": "󰄛",
+      "2": "",
+      "3": "",
+      "4": "󰓇",
+      "5": "",
+      "6": "",
+    },
+  },
+
+  "memory": {
+    "interval": 5,
+    "format": "󰍛 {}%",
+    "max-length": 10,
+    "tooltip": false,
+  },
+
+  "bluetooth": {
+    "format": "{icon} {status}",
+    "format-connected": "{icon} {device_alias}",
+    "format-icons": {
+      "on": "󰂳",
+      "off": "󰂲",
+      "connected": "󰂳",
+    },
+    "on-click": "blueman-manager",
+    "tooltip": false,
+  },
+
+  "tray": {
+    "spacing": 10,
+  },
+
+  "clock": {
+    "tooltip-format": "{calendar}",
+    "format-alt": "  {:%a, %d %b %Y}",
+    "format": "  {:%I:%M %p}",
+  },
+
+  "network": {
+    "format-wifi": "{icon} {essid}",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "format-ethernet": "󰀂 ",
+    "format-disconnected": "󰖪  {ifname}",
+    "on-click": "nm-applet",
+    "interval": 5,
+    "nospacing": 1,
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "󰂰{volume}%",
+    "nospacing": 1,
+    "format-muted": "󰝟",
+    "format-icons": {
+      "headphone": "",
+      "default": ["󰖀", "󰕾", ""],
+    },
+    "on-click": "pavucontrol -t 3",
+    "scroll-step": 1,
+    "tooltip": false,
+  },
+
+  "custom/logo": {
+    "format": " ",
+    "tooltip": false,
+    "on-click": "exec wofi --show drun",
+  },
+
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-icons": {
+      "charging": ["󰢜 ", "󰂆 ", "󰂇 ", "󰂈 ", "󰢝 ", "󰂉 ", "󰢞 ", "󰂊 ", "󰂋 ", "󰂅 "],
+      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    },
+    "format-full": "Charged ",
+    "interval": 5,
+    "states": {
+      "warning": 20,
+      "critical": 10,
+    },
+    "tooltip": false,
+  },
+
+  "custom/power": {
+    "format": "󰤆 ",
+    "tooltip": false,
+    "on-click": "exec wlogout -b 5",
+  },
+
+  "custom/notification": {
+    "tooltip": true,
+    "format": "{icon} ",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂜",
+      "dnd-notification": "󰂠",
+      "dnd-none": "󰪓",
+      "inhibited-notification": "󰂛",
+      "inhibited-none": "󰪑",
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰪑"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+
+  "custom/music": {
+    "format": "{0}",
+    "return-type": "json",
+    "max-length": 100,
+    "escape": true,
+    "tooltip": true,
+    "exec": "~/.config/waybar/scripts/mediaplayer.py",
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+  },
+
+}

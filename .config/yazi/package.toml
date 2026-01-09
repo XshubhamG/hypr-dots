@@ -1,0 +1,27 @@
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "80cd5b5"
+hash = "3996fc74044bc44144b323686f887e1"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:git"
+rev = "80cd5b5"
+hash = "170317244d60fbe70ad3cc3353358480"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:toggle-pane"
+rev = "80cd5b5"
+hash = "8a7c58225816a163a6e8730c0adafbc8"
+
+[[plugin.deps]]
+use = "xshubhamg/yatline"
+rev = "1029cce"
+hash = "69bd17a79a9b51aa682b3dc048bd27c"
+
+[[plugin.deps]]
+use = "xshubhamg/yatline-githead"
+rev = "88a508c"
+hash = "6915e57a389a41b4d709f456cb3c1d6f"
+
+[flavor]
+deps = []
