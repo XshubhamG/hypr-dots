@@ -1535,3 +1535,11 @@
 2026/01/10 00:14:43 logger.go:29: INFO: CUSTOM THEME DISABLED
 2026/01/10 01:24:14 logger.go:29: INFO: CUSTOM THEME DISABLED
 2026/01/10 01:27:24 logger.go:29: INFO: CUSTOM THEME DISABLED
+2026/01/10 09:58:37 logger.go:29: INFO: CUSTOM THEME DISABLED
+2026/01/10 09:58:37 logger.go:29: INFO: CUSTOM THEME DISABLED
+2026/01/10 09:58:37 logger.go:29: INFO: CUSTOM THEME DISABLED
+2026/01/10 09:58:37 logger.go:37: WARN: Failed to get active window on Wayland: no suitable tool found (Hyprctl, Wlrctl)
+2026/01/10 09:58:37 logger.go:37: WARN: Failed to get active window on Wayland: no suitable tool found (Hyprctl, Wlrctl)
+2026/01/10 10:00:24 logger.go:29: INFO: CUSTOM THEME DISABLED
+2026/01/10 10:00:32 logger.go:29: INFO: CUSTOM THEME DISABLED
+2026/01/10 10:00:45 logger.go:29: INFO: CUSTOM THEME DISABLED
