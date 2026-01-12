@@ -188,12 +188,8 @@ export FZF_ALT_C_OPTS="--walker-skip .git,node_modules,target --preview 'eza -T 
 # --------------- #
 eval "$(starship init zsh)"
 
-# bun completions
-[ -s "/home/xshubhamg/.bun/_bun" ] && source "/home/xshubhamg/.bun/_bun"
-
 # bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+source ~/.config/zsh/completions/_bun
 
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"
@@ -212,6 +208,9 @@ esac
 
 
 export PATH=$PATH:/home/xshubhamg/.spicetify
+
+# opencode
+export PATH=/home/xshubhamg/.opencode/bin:$PATH
 
 # edit command in neovim
 autoload -Uz edit-command-line
