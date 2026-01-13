@@ -132,6 +132,7 @@ tooltip {
 }
 .widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked {
     background: @blue;
+    color: @background;
 }
 .widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked:hover {
     background: alpha(@blue, 0.8);
