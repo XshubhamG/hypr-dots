@@ -206,7 +206,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
-
+# spicetify
 export PATH=$PATH:/home/xshubhamg/.spicetify
 
 # opencode
@@ -218,3 +218,8 @@ zle -N edit-command-line
 bindkey '^x^e' edit-command-line
 bindkey ' ' magic-space
 bindkey '^Y' autosuggest-accept
+
+# jujutsu
+autoload -U compinit
+compinit
+source <(jj util completion zsh)
