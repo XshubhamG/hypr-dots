@@ -15,43 +15,33 @@
     "bluetooth",
     "memory",
     "battery",
-    "custom/notification",
+    "custom/notification"
   ],
 
-  "backlight": {
-    "format": "{percent}% {icon}",
-    "format-icons": ["", "", "", "", "", "", "", "", ""],
-  },
-
-  "hyprland/workspaces": {
+"hyprland/workspaces": {
     "disable-scroll": true,
     "on-click": "activate",
     "all-outputs": true,
     "active-only": false,
     "persistent-workspaces": {
-      "1": [],
-      "2": [],
-      "3": [],
-      "4": [],
-      "5": [],
-      "6": [],
+      "1": [], "2": [], "3": [], "4": [], "5": [], "6": []
     },
     "format": "{icon}",
     "format-icons": {
-      "1": "󰄛",
-      "2": "",
-      "3": "",
-      "4": "󰓇",
-      "5": "",
-      "6": "",
-    },
+      "1": "󰄛", "2": "", "3": "", "4": "󰓇", "5": "", "6": ""
+    }
+  },
+
+  "backlight": {
+    "format": "{percent}% {icon}",
+    "format-icons": ["", "", "", "", "", "", "", "", ""]
   },
 
   "memory": {
     "interval": 5,
     "format": "󰍛 {}%",
     "max-length": 10,
-    "tooltip": false,
+    "tooltip": false
   },
 
   "bluetooth": {
@@ -60,20 +50,20 @@
     "format-icons": {
       "on": "󰂳",
       "off": "󰂲",
-      "connected": "󰂳",
+      "connected": "󰂳"
     },
     "on-click": "blueman-manager",
-    "tooltip": false,
+    "tooltip": false
   },
 
   "tray": {
-    "spacing": 10,
+    "spacing": 10
   },
 
   "clock": {
     "tooltip-format": "{calendar}",
     "format-alt": "  {:%a, %d %b %Y}",
-    "format": "  {:%I:%M %p}",
+    "format": "  {:%I:%M %p}"
   },
 
   "network": {
@@ -83,7 +73,7 @@
     "format-disconnected": "󰖪  {ifname}",
     "on-click": "nm-applet",
     "interval": 5,
-    "nospacing": 1,
+    "nospacing": 1
   },
 
   "pulseaudio": {
@@ -93,38 +83,26 @@
     "format-muted": "󰝟",
     "format-icons": {
       "headphone": "",
-      "default": ["󰖀", "󰕾", ""],
+      "default": ["󰖀", "󰕾", ""]
     },
     "on-click": "pavucontrol -t 3",
     "scroll-step": 1,
-    "tooltip": false,
-  },
-
-  "custom/logo": {
-    "format": " ",
-    "tooltip": false,
-    "on-click": "exec wofi --show drun",
+    "tooltip": false
   },
 
   "battery": {
     "format": "{capacity}% {icon}",
     "format-icons": {
       "charging": ["󰢜 ", "󰂆 ", "󰂇 ", "󰂈 ", "󰢝 ", "󰂉 ", "󰢞 ", "󰂊 ", "󰂋 ", "󰂅 "],
-      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
     "format-full": "Charged ",
     "interval": 5,
     "states": {
       "warning": 20,
-      "critical": 10,
+      "critical": 10
     },
-    "tooltip": false,
-  },
-
-  "custom/power": {
-    "format": "󰤆 ",
-    "tooltip": false,
-    "on-click": "exec wlogout -b 5",
+    "tooltip": false
   },
 
   "custom/notification": {
@@ -146,18 +124,5 @@
     "on-click": "swaync-client -t -sw",
     "on-click-right": "swaync-client -d -sw",
     "escape": true
-  },
-
-  "custom/music": {
-    "format": "{0}",
-    "return-type": "json",
-    "max-length": 100,
-    "escape": true,
-    "tooltip": true,
-    "exec": "~/.config/waybar/scripts/mediaplayer.py",
-    "on-click": "playerctl play-pause",
-    "on-scroll-up": "playerctl next",
-    "on-scroll-down": "playerctl previous",
-  },
-
+  }
 }

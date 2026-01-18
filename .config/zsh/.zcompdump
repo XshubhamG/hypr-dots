@@ -1,4 +1,4 @@
-#files: 1217	version: 5.9
+#files: 1222	version: 5.9
 
 _comps=(
 '-' '_precommand'
@@ -44,6 +44,7 @@ _comps=(
 'ansible-pull' '_ansible'
 'ansible-vault' '_ansible'
 'ant' '_ant'
+'antigravity' '_antigravity'
 'antiword' '_antiword'
 'aodh' '_openstack'
 'aoss' '_precommand'
@@ -426,6 +427,8 @@ _comps=(
 'fold' '_fold'
 'folder' '_mh'
 'folders' '_mh'
+'foot' '_foot'
+'footclient' '_footclient'
 'fortune' '_fortune'
 'forw' '_mh'
 'fprev' '_mh'
@@ -970,7 +973,9 @@ _comps=(
 'nginx' '_nginx'
 'ngrep' '_ngrep'
 'nice' '_nice'
+'nim' '_nim'
 'ninja' '_ninja'
+'niri' '_niri'
 'nkf' '_nkf'
 'nl' '_nl'
 'nm' '_nm'
@@ -1956,13 +1961,14 @@ autoload -Uz _afew _age _android _archlinux-java _artisan \
             _ufw _uuidd _uuidgen _uuidparse _vipw \
             _virtualbox _vnstat _wdctl _wemux _wg-quick \
             _xdg-mime _xsel _yamllint _yarn _zcash-cli \
-            _zinit _zramctl _awww _bat _bluetoothctl \
-            _bootctl _bun _busctl _bwrap _chafa \
-            _coredumpctl _ctr _curl _cursor _docker \
-            _eza _fastfetch _fd _hostnamectl _hyprctl \
-            _hyprpm _img2sixel _insmod _jj _journalctl \
-            _kernel-install _kitty _localectl _loginctl _lsmod \
-            _machinectl _mkinitcpio _mpv _networkctl _ninja \
+            _zinit _zramctl _antigravity _awww _bat \
+            _bluetoothctl _bootctl _bun _busctl _bwrap \
+            _chafa _coredumpctl _ctr _curl _cursor \
+            _docker _eza _fastfetch _fd _foot \
+            _footclient _hostnamectl _hyprctl _hyprpm _img2sixel \
+            _insmod _jj _journalctl _kernel-install _kitty \
+            _localectl _loginctl _lsmod _machinectl _mkinitcpio \
+            _mpv _networkctl _nim _ninja _niri \
             _oomctl _p11-kit _pacman _playerctl _podman \
             _podman-remote _pulseaudio _resolvectl _rg _rmmod \
             _run0 _sd_bus_address _sd_hosts_or_user_at_host _sd_machines _sd_outputmodes \

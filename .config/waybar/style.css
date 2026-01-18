@@ -19,62 +19,30 @@ window#waybar.hidden {
 
 #workspaces button {
   font-size: 20px;
-  padding: 0 20px;
+  padding: 0 12px;
+  color: @subtext0;
 }
 
-/* For individual workspace colors */
-#workspaces button:nth-child(1) {
-  color: @red; /* Workspace 1 */
+#workspaces button:nth-child(1):not(.empty) {
+  color: @red;
 }
 
-#workspaces button:nth-child(1).active {
-  color: @base;
-  background-color: @red;
+#workspaces button:nth-child(2):not(.empty) {
+  color: @mauve;
 }
 
-#workspaces button:nth-child(2) {
-  color: @green; /* Workspace 2 */
+#workspaces button:nth-child(3):not(.empty) {
+  color: @blue;
 }
 
-#workspaces button:nth-child(2).active {
-  color: @base;
-  background-color: @green;
+#workspaces button:nth-child(4):not(.empty) {
+  color: @green;
 }
-
-#workspaces button:nth-child(3) {
-  color: @blue; /* Workspace 3 */
+#workspaces button:nth-child(5):not(.empty) {
+  color: @yellow;
 }
-
-#workspaces button:nth-child(3).active {
-  color: @base;
-  background-color: @blue;
-}
-
-#workspaces button:nth-child(4) {
-  color: @maroon; /* Workspace 4 */
-}
-
-#workspaces button:nth-child(4).active {
-  color: @base;
-  background-color: @maroon;
-}
-
-#workspaces button:nth-child(5) {
-  color: @lavender; /* Workspace 5 */
-}
-
-#workspaces button:nth-child(5).active {
-  color: @base;
-  background-color: @lavender;
-}
-
-#workspaces button:nth-child(6) {
-  color: @yellow; /* Workspace 6 */
-}
-
-#workspaces button:nth-child(6).active {
-  color: @base;
-  background-color: @yellow;
+#workspaces button:nth-child(6):not(.empty) {
+  color: @rosewater;
 }
 
 #clock {
@@ -96,7 +64,7 @@ window#waybar.hidden {
 #bluetooth,
 #custom-notification,
 #pulseaudio {
-  padding: 0 6px;
+  padding: 0 5px;
 }
 
 #memory {
