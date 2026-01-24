@@ -1,4 +1,13 @@
 {
+  "git_panel": {
+    "tree_view": true
+  },
+  "tab_bar": {
+    "show_tab_bar_buttons": true
+  },
+  "prettier": {
+    "allowed": true
+  },
   "agent": {
     "default_model": {
       "provider": "copilot_chat",
@@ -9,10 +18,13 @@
   },
   "autosave": "on_focus_change",
   "vim_mode": true,
-  "ui_font_size": 18,
-  "buffer_font_size": 16,
+  "ui_font_size": 21.0,
+  "buffer_font_size": 18.0,
   "base_keymap": "Cursor",
   "theme": "Catppuccin Mocha",
   "icon_theme": "Catppuccin Mocha",
   "format_on_save": "on",
+  "experimental": {
+    "systemd_integration": false
+  }
 }

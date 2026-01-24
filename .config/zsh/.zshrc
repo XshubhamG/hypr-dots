@@ -1,90 +1,42 @@
-# --------------- #
-# Plugin manager  #
-# --------------- #
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-
-#  Download zinit, if it's not there yet
-if [ ! -d "$ZINIT_HOME" ]; then
-    mkdir -p "$(dirname $ZINIT_HOME)"
-    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+# ------------- #
+#  Instant prompt
+# ------------- #
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# XDG_PATHS
+# ------------- #
+#  Basic env + PATH
+# ------------- #
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
 export XDG_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}
 export XDG_CACHE_HOME=${XDG_CACHE_HOME:="$HOME/.cache"}
 export XDG_STATE_HOME=${XDG_STATE_HOME:="$HOME/.local/state"}
-export CARGO_HOME=${CARGO_HOME:="$XDG_DATA_HOME/cargo"}
-export DOCKER_CONFIG=${DOCKER_CONFIG:="$XDG_CONFIG_HOME/docker"}
-export GOPATH=${GOPATH:="$XDG_DATA_HOME/go"}
-export GTK2_RC_FILES=${GTK2_RC_FILES:="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"}
-export ELECTRON_OZONE_PLATFORM_HINT=wayland
-export XDG_DATA_DIRS=${XDG_DATA_DIRS:="/usr/share/applications"}
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export GOPATH="$XDG_DATA_HOME/go"
+export PATH="$PATH:$HOME/.local/bin:$CARGO_HOME/bin:$GOPATH/bin:$PNPM_HOME:/home/xshubhamg/.spicetify"
 
-# Source zinit
-source "${ZINIT_HOME}/zinit.zsh"
+export MANPAGER='nvim +Man!'
+export VISUAL=nvim
+export EDITOR=nvim
+export PAGER=bat
 
-# --------------- #
-# presist history #
-# --------------- #
-HISTFILE=~/.config/zsh/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
-HISTDUP=erase
-setopt APPEND_HISTORY
-setopt SHARE_HISTORY
-setopt HIST_IGNORE_SPACE
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_SAVE_NO_DUPS
-setopt HIST_IGNORE_DUPS
-setopt HIST_FIND_NO_DUPS
+# ------------- #
+#  Zinit boot
+# ------------- #
+ZINIT_HOME="${XDG_DATA_HOME}/zinit/zinit.git"
+[[ ! -d "$ZINIT_HOME" ]] && { mkdir -p "$(dirname $ZINIT_HOME)"; git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"; }
+source "$ZINIT_HOME/zinit.zsh"
 
-# --------------- #
-# ZSH Basic Option #
-# --------------- #
-setopt autocd
-setopt correct
-setopt interactivecomments
-setopt magicequalsubst
-setopt nonomatch
-setopt notify
-setopt numericglobsort
-setopt promptsubst
-setopt menucomplete
-
-# -------------- #
-# Zstyle command #
-# -------------- #
-setopt no_list_ambiguous
-autoload -Uz compinit && compinit
-zstyle ':completion:*' menu select
-zstyle ':completion:*:descriptions' format '[%d]'
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' matcher-list \
-		'm:{a-zA-Z}={A-Za-z}' \
-		'+r:|[._-]=* r:|=*' \
-		'+l:|=*'
-zstyle ':vcs_info:*' formats ' %B%s-[%F{magenta}%f %F{yellow}%b%f]-'
-zstyle ':fzf-tab:*' fzf-flags --height=50% --pointer '» ' \
-                --color 'pointer:green:bold,bg+:-1:,fg+:green:bold,info:blue:bold,marker:yellow:bold,hl:gray:bold,hl+:yellow:bold' \
-                --input-label ' Search ' --color 'input-border:blue,input-label:blue:bold' \
-                --list-label ' Results ' --color 'list-border:green,list-label:green:bold' \
-                --preview-label ' Preview ' --color 'preview-border:magenta,preview-label:magenta:bold'
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --icons=always --color=always -a $realpath'
-zstyle ':fzf-tab:complete:eza:*' fzf-preview 'eza -1 --icons=always --color=always -a $realpath'
-zstyle ':fzf-tab:complete:bat:*' fzf-preview 'bat --color=always --theme=base16 $realpath'
-zstyle ':fzf-tab:complete:nvim:*' fzf-preview 'bat --color=always --theme=base16 $realpath'
-zstyle ':fzf-tab:*' fzf-bindings 'space:accept'
-zstyle ':fzf-tab:*' accept-line enter
-zinit cdreplay -q
-
-# -------------- #
-#     Plugins    #
-# -------------- #
+# ------------- #
+#  Plugins
+# ------------- #
+zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit light Aloxaf/fzf-tab
-zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
+
 source ~/hypr-dots/manual-zsh-plugins/zcolors/zcolors.plugin.zsh
 
 # zcolor
@@ -102,124 +54,90 @@ fi
 
 source ${XDG_CACHE_HOME:-$HOME/.cache}/zcolors
 
-# -------------- #
-#     PATH       #
-# -------------- #
-export PATH="$PATH:~/.local/bin"
-export PATH="$PATH:$HOME/.cargo/bin"
-export PATH="$PATH:$HOME/.local/share/cargo/bin"
-export PATH="$PATH:$HOME/.local/share/go/bin"
-
-export MANPAGER='nvim +Man!'
-export VISUAL=nvim
-export EDITOR=nvim
-export PAGER=bat
-
-# -------------- #
-#    Aliases     #
-# -------------- #
-
-alias v="nvim"
-alias code="cursor --ozone-platform=wayland &"
-alias tldr="tldr --list | fzf-tmux --preview 'tldr {1} --color=always' --preview-window=right,70% | xargs tldr"
-alias lz="lazygit"
-alias rm="trash -v"
-alias ncdu="ncdu --color dark"
-alias printalias="alias | fzf"
-alias printenv="printenv | fzf"
-alias ff="pokeget random --hide-name | fastfetch --file -"
-alias spotify="spotify --ozone-platform=wayland"
-
-# help with bat
-alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
-alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
-
-# tmux alias
-alias tmux-attach="tmux attach -t"
-tmux source ~/.config/tmux/tmux.conf
-
-# git alias
-alias gs="git status"
-alias ga="git add"
-alias gc="git commit"
-alias gp="git push"
-alias gp="git push"
-alias gl="git log"
-
-# Changing "ls" to "eza"
-alias ls='eza --icons --color=always --group-directories-first'
-alias la='eza -abhHlS --icons --color=always --group-directories-first'
-alias ll='eza -a --icons --color=always --group-directories-first'
-alias l='eza -F --icons --color=always --group-directories-first'
-alias l.='eza -a | grep -E "^\."'
-alias lt="eza -aT --icons --color=always --level=2"
-
-# arch pkg install alias
-alias yy='yay'
-alias yi='yay -S'
-alias yr='yay -R'
-alias yrns='yay -Rns'
-
+# ------------- #
+#  Completions
+# ------------- #
+autoload -Uz compinit && compinit
+zinit cdreplay -q
 
 # ------------- #
-#     FZF       #
+#  Styles
 # ------------- #
+zstyle ':completion:*' menu select
+zstyle ':completion:*:descriptions' format '[%d]'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
-# Ctrl-R command
-export FZF_DEFAULT_OPTS=" \
---color=bg+:#1e1e2e,spinner:#7dcfff,hl:#73daca \
---color=fg:#cdd6f4,header:#73daca,info:#cba6f7,pointer:#e0af68 \
---color=marker:#7dcfff,fg+:#cdd6f4,prompt:#cba6f7,hl+:#73daca --height=60% --tmux 80% --border --prompt '∷ ' --pointer » --marker ⇒"
+zstyle ':completion:*' matcher-list \
+  'm:{a-zA-Z}={A-Za-z}' \
+  '+r:|[._-]=* r:|=*' \
+  '+l:|=*'
+
+zstyle ':fzf-tab:*' fzf-flags --height=50% --pointer '»'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --icons --color=always -a $realpath'
+zstyle ':fzf-tab:complete:eza:*' fzf-preview 'eza --icons --color=always -a $realpath'
+zstyle ':fzf-tab:complete:bat:*' fzf-preview 'bat --color=always $realpath'
+zstyle ':fzf-tab:complete:nvim:*' fzf-preview 'bat --color=always $realpath'
+
+# ------------- #
+#  Shell options
+# ------------- #
+setopt autocd magicequalsubst numericglobsort promptsubst
+setopt appendhistory sharehistory hist_ignore_dups hist_find_no_dups hist_ignore_all_dups hist_ignore_space hist_save_no_dups
+HISTSIZE=10000
+HISTFILE=~/.config/zsh/.zsh_history
+SAVEHIST=$HISTSIZE
+
+# ------------- #
+#  FZF
+# ------------- #
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --exclude .git --exclude node_modules --strip-cwd-prefix"
-
-# Ctrl-T command
+export FZF_DEFAULT_OPTS="--height=60% ..."
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_CTRL_T_OPTS="--preview 'bat --theme base16 --color=always --line-range :150 {}'"
-
-# Alt-C command
-export FZF_ALT_C_COMMAND="fd --type d . --color=never --hidden --exclude .git --exclude node_modules"
-export FZF_ALT_C_OPTS="--walker-skip .git,node_modules,target --preview 'eza -T --icons --color=always {} | head -n 50'"
-
-# setup fzf
+export FZF_ALT_C_COMMAND="fd --type d ..."
 [ -f ~/hypr-dots/fzf/.fzf.zsh ] && source ~/hypr-dots/fzf/.fzf.zsh
 
-# --------------- #
-# starship prompt #
-# --------------- #
-eval "$(starship init zsh)"
-
-# bun
+# ------------- #
+#  Extras: bun, zoxide, uv, pnpm
+# ------------- #
 source ~/.config/zsh/completions/_bun
-
-# zoxide
 eval "$(zoxide init --cmd cd zsh)"
-
-# uv python
 . "$HOME/.local/share/../bin/env"
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
 
-# pnpm
-export PNPM_HOME="/home/xshubhamg/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-
-# spicetify
-export PATH=$PATH:/home/xshubhamg/.spicetify
-
-# opencode
-export PATH=/home/xshubhamg/.opencode/bin:$PATH
-
-# edit command in neovim
-autoload -Uz edit-command-line
-zle -N edit-command-line
+# ------------- #
+#  Keys + Aliases
+# ------------- #
+bindkey -e
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
 bindkey '^x^e' edit-command-line
 bindkey ' ' magic-space
 bindkey '^Y' autosuggest-accept
+# -------------- # 
+# Aliases # 
+# -------------- # 
+alias v="nvim" 
+alias lz="lazygit" 
+alias c="clear" 
+alias rm="trash -v" 
+alias ff="pokeget random --hide-name | fastfetch --file -"
 
-# jujutsu
-autoload -U compinit
-compinit
-source <(jj util completion zsh)
+# Changing "ls" to "eza"
+alias ls='eza --icons --color=always --group-directories-first' 
+alias la='eza -abhHlS --icons --color=always --group-directories-first' 
+alias ll='eza -a --icons --color=always --group-directories-first' 
+alias l='eza -F --icons --color=always --group-directories-first' 
+alias l.='eza -a | grep -E "^\."' alias lt="eza -aT --icons --color=always --level=2"
+
+# help with bat 
+alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
+alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
+
+alias yy='yay' 
+alias yi='yay -S' 
+alias yr='yay -R' 
+alias yrns='yay -Rns'
+
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
