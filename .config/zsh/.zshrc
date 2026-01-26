@@ -37,6 +37,11 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
 
+zinit snippet OMZP::sudo
+zinit snippet OMZP::archlinux
+zinit snippet OMZP::command-not-found
+zinit snippet OMZP::git
+
 source ~/hypr-dots/manual-zsh-plugins/zcolors/zcolors.plugin.zsh
 
 # zcolor
@@ -72,11 +77,14 @@ zstyle ':completion:*' matcher-list \
   '+r:|[._-]=* r:|=*' \
   '+l:|=*'
 
-zstyle ':fzf-tab:*' fzf-flags --height=50% --pointer '»'
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --icons --color=always -a $realpath'
-zstyle ':fzf-tab:complete:eza:*' fzf-preview 'eza --icons --color=always -a $realpath'
-zstyle ':fzf-tab:complete:bat:*' fzf-preview 'bat --color=always $realpath'
-zstyle ':fzf-tab:complete:nvim:*' fzf-preview 'bat --color=always $realpath'
+zstyle ':fzf-tab:*' fzf-flags --height=50% --pointer '»' \
+    --color 'pointer:green,fg+:-1,bg+:-1,hl+:-1,marker:-1'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --icons --color=always -a $realpath'
+zstyle ':fzf-tab:complete:eza:*' fzf-preview 'eza -1 --icons --color=always -a $realpath'
+zstyle ':fzf-tab:complete:bat:*' fzf-preview 'bat --color=always --theme=base16 $realpath'
+zstyle ':fzf-tab:complete:nvim:*' fzf-preview 'bat --color=always --theme=base16 $realpath'
+zstyle ':fzf-tab:*' fzf-bindings 'space:accept'
+zstyle ':fzf-tab:*' accept-line enter
 
 # ------------- #
 #  Shell options
@@ -90,14 +98,23 @@ SAVEHIST=$HISTSIZE
 # ------------- #
 #  FZF
 # ------------- #
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#1e1e2e,spinner:#7dcfff,hl:#73daca \
+--color=fg:#cdd6f4,header:#73daca,info:#cba6f7,pointer:#e0af68 \
+--color=marker:#7dcfff,fg+:#cdd6f4,prompt:#cba6f7,hl+:#73daca --height=60% --tmux 80% --border --prompt '∷ ' --pointer » --marker ⇒"
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --exclude .git --exclude node_modules --strip-cwd-prefix"
-export FZF_DEFAULT_OPTS="--height=60% ..."
+
+# Ctrl-T command
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="fd --type d ..."
+export FZF_CTRL_T_OPTS="--preview 'bat --theme base16 --color=always --line-range :150 {}'"
+
+# Alt-C command
+export FZF_ALT_C_COMMAND="fd --type d . --color=never --hidden --exclude .git --exclude node_modules"
+export FZF_ALT_C_OPTS="--walker-skip .git,node_modules,target --preview 'eza -T --icons --color=always {} | head -n 50'"
 [ -f ~/hypr-dots/fzf/.fzf.zsh ] && source ~/hypr-dots/fzf/.fzf.zsh
 
 # ------------- #
-#  Extras: bun, zoxide, uv, pnpm
+#  Extras: bun, zoxide, uv
 # ------------- #
 source ~/.config/zsh/completions/_bun
 eval "$(zoxide init --cmd cd zsh)"
@@ -138,6 +155,15 @@ alias yy='yay'
 alias yi='yay -S' 
 alias yr='yay -R' 
 alias yrns='yay -Rns'
+
+
+# git alias
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit"
+alias gp="git push"
+alias gp="git push"
+alias gl="git log"
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
