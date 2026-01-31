@@ -113,3 +113,6 @@
 	prompt = 15 4
 	help = 8 normal
 	error = 9 normal
+[http]
+	version = HTTP/1.1
+	sslbackend = openssl

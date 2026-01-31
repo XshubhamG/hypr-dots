@@ -131,8 +131,9 @@ bindkey '^n' history-search-forward
 bindkey '^x^e' edit-command-line
 bindkey ' ' magic-space
 bindkey '^Y' autosuggest-accept
+
 # -------------- # 
-# Aliases # 
+#     Aliases    # 
 # -------------- # 
 alias v="nvim" 
 alias lz="lazygit" 

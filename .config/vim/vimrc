@@ -124,7 +124,7 @@ set relativenumber
 
 " Enable mouse mode
 set mouse=a
-set clipboard=unnamedplus
+set clipboard=unnamed
 set breakindent
 set ignorecase
 set smartcase
