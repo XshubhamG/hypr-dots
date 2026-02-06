@@ -1,4 +1,10 @@
+.config/clipse/tmp_files/
 .config/clipse/clipse.log
-.config/mpv/shaders/
-.config/mpv/script-opts/*.log
+.config/clipse/clipboard_history.json
 
+.config/mpv/shaders/
+.config/mpv/saved-subs.json
+.config/mpv/script-opts/*.log
+.config/mpv/script-opts/memo-history.log
+
+.config/vim/plugged/vim-healthcheck

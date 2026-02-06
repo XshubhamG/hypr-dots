@@ -1,0 +1,98 @@
+[
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "j k": "vim::NormalBefore",
+    },
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "x": "project_panel::Cut",
+    },
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "c": "project_panel::Copy",
+    },
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "o": "project_panel::Open",
+    },
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "p": "project_panel::Paste",
+    },
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "d": "project_panel::Trash",
+    },
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "r": "project_panel::Rename",
+    },
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "shift-d": "project_panel::Delete",
+    },
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "a": "project_panel::NewFile",
+    },
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "shift-a": "project_panel::NewDirectory",
+    },
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "h": "project_panel::ToggleHideHidden",
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "alt-e": "project_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-shift-e": null
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "alt-l": "workspace::ToggleRightDock"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "alt-h": "workspace::ToggleLeftDock"
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "alt-r": null
+    }
+  }
+]

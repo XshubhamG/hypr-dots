@@ -1,30 +1,89 @@
 {
-  "git_panel": {
-    "tree_view": true
-  },
-  "tab_bar": {
-    "show_tab_bar_buttons": true
-  },
-  "prettier": {
-    "allowed": true
-  },
-  "agent": {
-    "default_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-5-mini"
-    },
-    "favorite_models": [],
-    "model_parameters": []
-  },
-  "autosave": "on_focus_change",
+  // Appearance
+  "base_keymap": "VSCode",
   "vim_mode": true,
-  "ui_font_size": 21.0,
-  "buffer_font_size": 18.0,
-  "base_keymap": "Cursor",
+
+  "ui_font_size": 20.0,
+  "buffer_font_size": 20.0,
+  "ui_font_family": "Poppins",
+  "buffer_font_weight": 300,
+  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
+
   "theme": "Catppuccin Mocha",
   "icon_theme": "Catppuccin Mocha",
-  "format_on_save": "on",
-  "experimental": {
-    "systemd_integration": false
-  }
+
+  "tab_bar": {
+    "show": true,
+    "show_tab_bar_buttons": false,
+    "show_nav_history_buttons": false,
+  },
+
+  "tabs": {
+    "file_icons": true,
+  },
+
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false,
+    "selections_menu": false,
+    "agent_review": false,
+    "code_actions": false,
+  },
+
+  "title_bar": {
+    "show_branch_icon": false,
+    "show_branch_name": false,
+    "show_project_items": false,
+    "show_onboarding_banner": false,
+    "show_user_picture": true,
+    "show_sign_in": false,
+    "show_menus": false,
+  },
+
+  "minimap": {
+    "thumb_border": "none",
+  },
+  "scrollbar": {
+    "show": "never",
+  },
+
+  // Remove UI clutter
+  "status_bar": {
+    "cursor_position_button": false,
+    "active_language_button": true,
+  },
+  "project_panel": {
+    "dock": "right",
+    "button": true,
+    "hide_root": true,
+  },
+  "disable_ai": true,
+  "notification_panel": {
+    "button": false,
+  },
+  "debugger": {
+    "log_dap_communications": true,
+    "save_breakpoints": false,
+    "button": false,
+  },
+  "search": {
+    "button": false,
+  },
+  "diagnostics": {
+    "button": false,
+  },
+  "terminal": {
+    "scrollbar": {
+      "show": "never",
+    },
+    "button": false,
+  },
+
+  "languages": {
+    // Python
+    "Python": {
+      "tab_size": 4,
+      "language_servers": ["ty", "ruff", "!basedpyright"],
+    },
+  },
 }
