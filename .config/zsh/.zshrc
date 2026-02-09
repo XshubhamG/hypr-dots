@@ -114,9 +114,10 @@ export FZF_ALT_C_OPTS="--walker-skip .git,node_modules,target --preview 'eza -T 
 [ -f ~/hypr-dots/fzf/.fzf.zsh ] && source ~/hypr-dots/fzf/.fzf.zsh
 
 # ------------- #
-#  Extras: bun, zoxide, uv
+#  Extras: bun, zoxide, uv, sesh
 # ------------- #
 source ~/.config/zsh/completions/_bun
+source ~/.config/zsh/completions/_sesh
 eval "$(zoxide init --cmd cd zsh)"
 . "$HOME/.local/share/../bin/env"
 eval "$(uv generate-shell-completion zsh)"
@@ -136,6 +137,7 @@ bindkey '^Y' autosuggest-accept
 #     Aliases    # 
 # -------------- # 
 alias v="nvim" 
+alias zed="zeditor"
 alias lz="lazygit" 
 alias c="clear" 
 alias rm="trash -v" 

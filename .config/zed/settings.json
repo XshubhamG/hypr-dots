@@ -53,6 +53,7 @@
     "active_language_button": true,
   },
   "project_panel": {
+    "hide_hidden": false,
     "dock": "right",
     "button": true,
     "hide_root": true,
