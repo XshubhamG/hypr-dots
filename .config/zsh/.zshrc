@@ -132,6 +132,7 @@ bindkey '^n' history-search-forward
 bindkey '^x^e' edit-command-line
 bindkey ' ' magic-space
 bindkey '^Y' autosuggest-accept
+bindkey -s '^[k' 'tmux new-session -A -s "Home 󰣇"\n'
 
 # -------------- # 
 #     Aliases    # 
@@ -142,6 +143,7 @@ alias lz="lazygit"
 alias c="clear" 
 alias rm="trash -v" 
 alias ff="pokeget random --hide-name | fastfetch --file -"
+alias ts="tmux new-session -A -s 'Home 󰣇'"
 
 # Changing "ls" to "eza"
 alias ls='eza --icons --color=always --group-directories-first' 
@@ -159,7 +161,6 @@ alias yi='yay -S'
 alias yr='yay -R' 
 alias yrns='yay -Rns'
 
-
 # git alias
 alias gs="git status"
 alias ga="git add"
@@ -167,6 +168,7 @@ alias gc="git commit"
 alias gp="git push"
 alias gp="git push"
 alias gl="git log"
+alias gsw="git switch"
 
-# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+# To customize prompt, run `p10k configure` or edit ~/hypr-dots/.config/zsh/.p10k.zsh.
+[[ ! -f ~/hypr-dots/.config/zsh/.p10k.zsh ]] || source ~/hypr-dots/.config/zsh/.p10k.zsh

@@ -1,5 +1,16 @@
 {
   // Appearance
+  "agent": {
+    "dock": "left",
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "edit_predictions": {
+    "mode": "subtle"
+  },
+  "helix_mode": false,
+  "relative_line_numbers": "enabled",
+  "autosave": "on_focus_change",
   "base_keymap": "VSCode",
   "vim_mode": true,
 
