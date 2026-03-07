@@ -1,46 +1,45 @@
 {
-  // Appearance
-  "agent": {
-    "dock": "left",
-    "favorite_models": [],
-    "model_parameters": []
-  },
-  "edit_predictions": {
-    "mode": "subtle"
-  },
-  "helix_mode": false,
-  "relative_line_numbers": "enabled",
-  "autosave": "on_focus_change",
-  "base_keymap": "VSCode",
-  "vim_mode": true,
-
-  "ui_font_size": 20.0,
-  "buffer_font_size": 20.0,
-  "ui_font_family": "Poppins",
-  "buffer_font_weight": 300,
-  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
-
+  // ─── Theme & Visual Appearance ─────────────────────────────────────────────
   "theme": "Catppuccin Mocha",
   "icon_theme": "Catppuccin Mocha",
-
-  "tab_bar": {
-    "show": true,
-    "show_tab_bar_buttons": false,
-    "show_nav_history_buttons": false,
+  "theme_overrides": {
+    "Catppuccin Mocha": {
+      "players": [
+        {
+          "cursor": "#cba6f7",
+        },
+      ],
+      "syntax": {
+        "comment": {
+          "font_style": "italic",
+        },
+        "comment.doc": {
+          "font_style": "italic",
+        },
+      },
+    },
   },
 
-  "tabs": {
-    "file_icons": true,
-  },
+  // ─── Typography ────────────────────────────────────────────────────────────
+  "ui_font_size": 20.0,
+  "buffer_font_size": 18.0,
+  "ui_font_family": "Poppins",
+  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
+  "buffer_font_weight": 300,
+  "agent_ui_font_size": 18,
+  "agent_buffer_font_size": 18,
 
-  "toolbar": {
-    "breadcrumbs": false,
-    "quick_actions": false,
-    "selections_menu": false,
-    "agent_review": false,
-    "code_actions": false,
-  },
+  // ─── Editor Behavior ───────────────────────────────────────────────────────
+  "relative_line_numbers": "enabled",
+  "autosave": "on_focus_change",
+  "show_whitespaces": "none",
+  "current_line_highlight": "none",
+  "extend_comment_on_newline": false,
+  "base_keymap": "VSCode",
+  "restore_on_file_reopen": true,
+  "vim_mode": true,
 
+  // ─── Title Bar ─────────────────────────────────────────────────────────────
   "title_bar": {
     "show_branch_icon": false,
     "show_branch_name": false,
@@ -51,6 +50,29 @@
     "show_menus": false,
   },
 
+  // ─── Tab Bar ───────────────────────────────────────────────────────────────
+  "tab_bar": {
+    "show": true,
+    "show_tab_bar_buttons": false,
+    "show_nav_history_buttons": false,
+  },
+  "tabs": {
+    "file_icons": true,
+  },
+
+  // ─── Gutter ────────────────────────────────────────────────────────────────
+  "gutter": { "min_line_number_digits": 0, "folds": false, "runnables": false },
+
+  // ─── Toolbar ───────────────────────────────────────────────────────────────
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false,
+    "selections_menu": false,
+    "agent_review": false,
+    "code_actions": false,
+  },
+
+  // ─── Minimap & Scrollbar ────────────────────────────────────────────────────
   "minimap": {
     "thumb_border": "none",
   },
@@ -58,21 +80,31 @@
     "show": "never",
   },
 
-  // Remove UI clutter
+  // ─── Status Bar ────────────────────────────────────────────────────────────
   "status_bar": {
+    "experimental.show": true,
     "cursor_position_button": false,
     "active_language_button": true,
   },
+
+  // ─── Panels ─────────────────────────────────────────────────────────────────
   "project_panel": {
-    "hide_hidden": false,
     "dock": "right",
-    "button": true,
+    "button": false,
+    "hide_hidden": false,
     "hide_root": true,
+    "auto_fold_dirs": false,
+    "starts_open": false,
+    "git_status": false,
   },
-  "disable_ai": true,
+  "git_panel": {
+    "tree_view": true,
+  },
   "notification_panel": {
     "button": false,
   },
+
+  // ─── Panel Buttons (UI clutter reduction) ────────────────────────────────────
   "debugger": {
     "log_dap_communications": true,
     "save_breakpoints": false,
@@ -91,6 +123,24 @@
     "button": false,
   },
 
+  // ─── AI & Agent ─────────────────────────────────────────────────────────────
+  "disable_ai": false,
+  "agent_servers": {
+    "cursor": {
+      "type": "registry",
+    },
+  },
+  "agent": {
+    "dock": "left",
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "edit_predictions": {
+    "provider": "zed",
+    "mode": "eager",
+  },
+
+  // ─── Languages ─────────────────────────────────────────────────────────────
   "languages": {
     // Python
     "Python": {

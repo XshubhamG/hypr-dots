@@ -1,18 +1,25 @@
-set recolor true
+# Colors
+include atheme
+
+# config
+set recolor false
 set page-padding 0
-set guioptions "Hello"
-set recolor-keephue true
+set guioptions none
 set adjust-open "best-fit"
-set statusbar true
+set statusbar false
 set statusbar-h-padding 5
 set statusbar-v-padding 5
 set statusbar-home-tilde true
 set selection-clipboard clipboard
 set window-title-home-tilde true
 set database sqlite
+set pages-per-row 1
+set page-cache-size 100
+set scroll-step 50
+set render-loading true
 
 # Keybindings
-map p print
+map P print
 map r reload
 map R rotate
 map i recolor
@@ -29,7 +36,4 @@ map p navigate previous
 map <C-Tab> toggle_statusbar
 
 # Fonts
-set font "Jetbrains Mono Nerd Font 11"
-
-# Colors
-include atheme
+set font "Poppins 12"
