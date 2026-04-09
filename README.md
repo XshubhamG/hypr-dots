@@ -11,7 +11,7 @@
 
 <br>
 
-<video src="assets/tour.mp4" autoplay loop muted playsinline width="90%"></video>
+https://github.com/XshubhamG/hypr-dots/raw/main/assets/tour.mp4
 
 </div>
 
