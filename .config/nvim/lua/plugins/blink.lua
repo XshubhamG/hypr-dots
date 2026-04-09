@@ -34,7 +34,7 @@ return {
       use_nvim_cmp_as_default = false,
       -- set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
       -- adjusts spacing to ensure icons are aligned
-      nerd_font_variant = "normal",
+      nerd_font_variant = "mono",
     },
     completion = {
       accept = {
@@ -49,9 +49,11 @@ return {
         },
       },
       documentation = {
+        window = { border = "single" },
         auto_show = true,
         auto_show_delay_ms = 200,
       },
+      signature = { window = { border = "single" } },
       ghost_text = {
         enabled = vim.g.ai_cmp,
       },

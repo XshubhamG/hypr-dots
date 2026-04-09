@@ -53,4 +53,9 @@
       "alt-r": null,
     },
   },
+  {
+    "bindings": {
+      "space s g": "workspace::NewSearch"
+    }
+  }
 ]

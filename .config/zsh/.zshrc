@@ -172,3 +172,6 @@ alias gsw="git switch"
 
 # To customize prompt, run `p10k configure` or edit ~/hypr-dots/.config/zsh/.p10k.zsh.
 [[ ! -f ~/hypr-dots/.config/zsh/.p10k.zsh ]] || source ~/hypr-dots/.config/zsh/.p10k.zsh
+
+# added nvm
+source /usr/share/nvm/init-nvm.sh

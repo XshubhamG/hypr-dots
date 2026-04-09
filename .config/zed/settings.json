@@ -1,5 +1,6 @@
 {
   // ─── Theme & Visual Appearance ─────────────────────────────────────────────
+  "show_edit_predictions": false,
   "theme": "Catppuccin Mocha",
   "icon_theme": "Catppuccin Mocha",
   "theme_overrides": {
@@ -22,7 +23,7 @@
 
   // ─── Typography ────────────────────────────────────────────────────────────
   "ui_font_size": 20.0,
-  "buffer_font_size": 18.0,
+  "buffer_font_size": 20.0,
   "ui_font_family": "Poppins",
   "buffer_font_family": "JetBrainsMono Nerd Font Mono",
   "buffer_font_weight": 300,
@@ -126,11 +127,22 @@
   // ─── AI & Agent ─────────────────────────────────────────────────────────────
   "disable_ai": false,
   "agent_servers": {
+    "codex-acp": {
+      "type": "registry",
+    },
+    "gemini": {
+      "type": "registry",
+    },
     "cursor": {
       "type": "registry",
     },
   },
   "agent": {
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-5-mini",
+      "enable_thinking": false,
+    },
     "dock": "left",
     "favorite_models": [],
     "model_parameters": [],
