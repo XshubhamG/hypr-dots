@@ -32,25 +32,18 @@ source "$ZINIT_HOME/zinit.zsh"
 #  Plugins
 # ------------- #
 zinit ice depth=1; zinit light romkatv/powerlevel10k
-zinit light Aloxaf/fzf-tab
 zinit light zsh-users/zsh-completions
+
+zinit ice wait lucid
 zinit light zsh-users/zsh-autosuggestions
+
+zinit ice wait lucid
 zinit light zsh-users/zsh-syntax-highlighting
 
-zinit snippet OMZP::sudo
-zinit snippet OMZP::archlinux
-zinit snippet OMZP::command-not-found
-zinit snippet OMZP::git
+zinit ice wait lucid
+zinit light Aloxaf/fzf-tab
 
-source ~/hypr-dots/manual-zsh-plugins/zcolors/zcolors.plugin.zsh
-
-# zcolor
-# 1. Setup paths
-fpath=( ~/Repos/zcolors/functions $fpath )
-autoload -Uz zcolors
-
-# 2. Define local reply to catch the "global" leak
-local -a reply 
+# source ~/hypr-dots/manual-zsh-plugins/zcolors/zcolors.plugin.zsh
 
 # 3. Run zcolors
 if [[ ! -f ${XDG_CACHE_HOME:-$HOME/.cache}/zcolors ]]; then
@@ -62,7 +55,13 @@ source ${XDG_CACHE_HOME:-$HOME/.cache}/zcolors
 # ------------- #
 #  Completions
 # ------------- #
-autoload -Uz compinit && compinit
+autoload -Uz compinit
+
+if [[ -n ~/.cache/zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C
+fi
 zinit cdreplay -q
 
 # ------------- #
@@ -118,10 +117,19 @@ export FZF_ALT_C_OPTS="--walker-skip .git,node_modules,target --preview 'eza -T 
 # ------------- #
 source ~/.config/zsh/completions/_bun
 source ~/.config/zsh/completions/_sesh
-eval "$(zoxide init --cmd cd zsh)"
+
+zoxide init --cmd cd zsh | source /dev/stdin
+
 . "$HOME/.local/share/../bin/env"
-eval "$(uv generate-shell-completion zsh)"
-eval "$(uvx --generate-shell-completion zsh)"
+
+_uv_lazy() {
+  unset -f uv uvx
+  eval "$(uv generate-shell-completion zsh)"
+  eval "$(uvx --generate-shell-completion zsh)"
+}
+
+# To customize prompt, run `p10k configure` or edit ~/hypr-dots/.config/zsh/.p10k.zsh.
+[[ ! -f ~/hypr-dots/.config/zsh/.p10k.zsh ]] || source ~/hypr-dots/.config/zsh/.p10k.zsh
 
 # ------------- #
 #  Keys + Aliases
@@ -132,18 +140,18 @@ bindkey '^n' history-search-forward
 bindkey '^x^e' edit-command-line
 bindkey ' ' magic-space
 bindkey '^Y' autosuggest-accept
-bindkey -s '^[k' 'tmux new-session -A -s "Home 󰣇"\n'
 
 # -------------- # 
 #     Aliases    # 
 # -------------- # 
-alias v="nvim" 
+alias v="neovide" 
 alias zed="zeditor"
 alias lz="lazygit" 
 alias c="clear" 
 alias rm="trash -v" 
 alias ff="pokeget random --hide-name | fastfetch --file -"
-alias ts="tmux new-session -A -s 'Home 󰣇'"
+alias uv='_uv_lazy; uv'
+alias uvx='_uv_lazy; uvx'
 
 # Changing "ls" to "eza"
 alias ls='eza --icons --color=always --group-directories-first' 
@@ -156,6 +164,7 @@ alias l.='eza -a | grep -E "^\."' alias lt="eza -aT --icons --color=always --lev
 alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
 alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
+#aur helper
 alias yy='yay' 
 alias yi='yay -S' 
 alias yr='yay -R' 
@@ -169,9 +178,6 @@ alias gp="git push"
 alias gp="git push"
 alias gl="git log"
 alias gsw="git switch"
-
-# To customize prompt, run `p10k configure` or edit ~/hypr-dots/.config/zsh/.p10k.zsh.
-[[ ! -f ~/hypr-dots/.config/zsh/.p10k.zsh ]] || source ~/hypr-dots/.config/zsh/.p10k.zsh
 
 # added nvm
 source /usr/share/nvm/init-nvm.sh

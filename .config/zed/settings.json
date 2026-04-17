@@ -1,13 +1,22 @@
 {
   // ─── Theme & Visual Appearance ─────────────────────────────────────────────
   "show_edit_predictions": false,
-  "theme": "Catppuccin Mocha",
+  "theme": {
+    "mode": "system",
+    "light": "Catppuccin Mocha",
+    "dark": "Catppuccin Mocha"
+  },
   "icon_theme": "Catppuccin Mocha",
   "theme_overrides": {
     "Catppuccin Mocha": {
+      "accents": ["#f38ba8"],
+      "editor.active_line_number": "#f38ba8",
+      "border.focused": "#f38ba8",
+      "border.selected": "#f38ba8",
+      "pane.focused_border": "#f38ba8",
       "players": [
         {
-          "cursor": "#cba6f7",
+          "cursor": "#f38ba8",
         },
       ],
       "syntax": {

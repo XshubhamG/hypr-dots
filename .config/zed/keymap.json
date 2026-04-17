@@ -54,8 +54,15 @@
     },
   },
   {
-    "bindings": {
-      "space s g": "workspace::NewSearch"
-    }
-  }
+    "context": "vim_operator == helix_previous",
+    "unbind": {
+      "space": "vim::InsertEmptyLineAbove",
+    },
+  },
+  {
+    "context": "vim_operator == helix_next",
+    "unbind": {
+      "space": "vim::InsertEmptyLineBelow",
+    },
+  },
 ]

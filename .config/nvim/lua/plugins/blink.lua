@@ -34,7 +34,7 @@ return {
       use_nvim_cmp_as_default = false,
       -- set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
       -- adjusts spacing to ensure icons are aligned
-      nerd_font_variant = "mono",
+      nerd_font_variant = "normal",
     },
     completion = {
       accept = {
@@ -49,7 +49,7 @@ return {
         },
       },
       documentation = {
-        window = { border = "single" },
+        window = { border = "none" },
         auto_show = true,
         auto_show_delay_ms = 200,
       },
