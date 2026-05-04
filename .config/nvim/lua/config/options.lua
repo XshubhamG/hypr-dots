@@ -12,4 +12,5 @@ vim.api.nvim_set_keymap("n", "<leader>m", "<CMD>Markview<CR>", { desc = "Toggle 
 
 if vim.g.neovide then
   vim.opt.linespace = 12
+  vim.o.guifont = "JetBrainsMono Nerd Font Mono:h14"
 end

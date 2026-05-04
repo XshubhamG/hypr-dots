@@ -1,6 +1,6 @@
-fork = true
-frame = "full"
+fork=true
+frame="full"
 
 [font]
 normal = ["JetBrainsMono Nerd Font Mono"]
-size = 15.0
+size = 14.0

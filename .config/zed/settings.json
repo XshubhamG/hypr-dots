@@ -1,10 +1,53 @@
 {
   // ─── Theme & Visual Appearance ─────────────────────────────────────────────
+  "window_decorations": "client",
+  "use_system_window_tabs": false,
+  "bottom_dock_layout": "full",
+  "file_finder": {
+    "modal_max_width": "medium",
+  },
+  "vim": {
+    "toggle_relative_line_numbers": true,
+  },
+  "which_key": {
+    "enabled": true,
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+  "restore_on_startup": "launchpad",
+  "session": {
+    "trust_all_worktrees": true,
+  },
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "lsp": {
+    "vtsls": {
+      "settings": {
+        "typescript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always",
+          },
+        },
+        "javascript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always",
+          },
+        },
+      },
+      "enable_lsp_tasks": true,
+    },
+  },
   "show_edit_predictions": false,
   "theme": {
     "mode": "system",
     "light": "Catppuccin Mocha",
-    "dark": "Catppuccin Mocha"
+    "dark": "Catppuccin Mocha",
   },
   "icon_theme": "Catppuccin Mocha",
   "theme_overrides": {
@@ -41,7 +84,7 @@
 
   // ─── Editor Behavior ───────────────────────────────────────────────────────
   "relative_line_numbers": "enabled",
-  "autosave": "on_focus_change",
+  "autosave": "on_window_change",
   "show_whitespaces": "none",
   "current_line_highlight": "none",
   "extend_comment_on_newline": false,
@@ -51,7 +94,8 @@
 
   // ─── Title Bar ─────────────────────────────────────────────────────────────
   "title_bar": {
-    "show_branch_icon": false,
+    "button_layout": "platform_default",
+    "show_user_menu": true,
     "show_branch_name": false,
     "show_project_items": false,
     "show_onboarding_banner": false,
@@ -100,7 +144,7 @@
   // ─── Panels ─────────────────────────────────────────────────────────────────
   "project_panel": {
     "dock": "right",
-    "button": false,
+    "button": true,
     "hide_hidden": false,
     "hide_root": true,
     "auto_fold_dirs": false,
@@ -108,6 +152,7 @@
     "git_status": false,
   },
   "git_panel": {
+    "dock": "left",
     "tree_view": true,
   },
   "notification_panel": {
@@ -136,6 +181,9 @@
   // ─── AI & Agent ─────────────────────────────────────────────────────────────
   "disable_ai": false,
   "agent_servers": {
+    "github-copilot-cli": {
+      "type": "registry",
+    },
     "codex-acp": {
       "type": "registry",
     },

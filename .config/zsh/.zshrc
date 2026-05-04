@@ -14,7 +14,16 @@ export XDG_CACHE_HOME=${XDG_CACHE_HOME:="$HOME/.cache"}
 export XDG_STATE_HOME=${XDG_STATE_HOME:="$HOME/.local/state"}
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export GOPATH="$XDG_DATA_HOME/go"
-export PATH="$PATH:$HOME/.local/bin:$CARGO_HOME/bin:$GOPATH/bin:$PNPM_HOME:/home/xshubhamg/.spicetify"
+typeset -U path PATH
+path=(
+  "$HOME/.local/bin"
+  "$CARGO_HOME/bin"
+  "$GOPATH/bin"
+  ${PNPM_HOME:+$PNPM_HOME}
+  "$HOME/.spicetify"
+  $path
+)
+export PATH
 
 export MANPAGER='nvim +Man!'
 export VISUAL=nvim
@@ -25,7 +34,10 @@ export PAGER=bat
 #  Zinit boot
 # ------------- #
 ZINIT_HOME="${XDG_DATA_HOME}/zinit/zinit.git"
-[[ ! -d "$ZINIT_HOME" ]] && { mkdir -p "$(dirname $ZINIT_HOME)"; git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"; }
+if [[ ! -r "$ZINIT_HOME/zinit.zsh" ]]; then
+  mkdir -p "${ZINIT_HOME:h}"
+  git clone --depth=1 https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
 source "$ZINIT_HOME/zinit.zsh"
 
 # ------------- #
@@ -34,33 +46,37 @@ source "$ZINIT_HOME/zinit.zsh"
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit light zsh-users/zsh-completions
 
-zinit ice wait lucid
+zinit ice wait lucid blockf
 zinit light zsh-users/zsh-autosuggestions
 
 zinit ice wait lucid
 zinit light zsh-users/zsh-syntax-highlighting
 
-zinit ice wait lucid
+zinit ice wait lucid blockf
 zinit light Aloxaf/fzf-tab
 
 # source ~/hypr-dots/manual-zsh-plugins/zcolors/zcolors.plugin.zsh
 
 # 3. Run zcolors
-if [[ ! -f ${XDG_CACHE_HOME:-$HOME/.cache}/zcolors ]]; then
+if (( $+commands[zcolors] )) && [[ ! -f ${XDG_CACHE_HOME:-$HOME/.cache}/zcolors ]]; then
     zcolors ${(q+)LS_COLORS} >| ${XDG_CACHE_HOME:-$HOME/.cache}/zcolors
 fi
 
-source ${XDG_CACHE_HOME:-$HOME/.cache}/zcolors
+[[ -r ${XDG_CACHE_HOME:-$HOME/.cache}/zcolors ]] && source ${XDG_CACHE_HOME:-$HOME/.cache}/zcolors
 
 # ------------- #
 #  Completions
 # ------------- #
+setopt extendedglob
+typeset -U fpath
+fpath=("$XDG_CONFIG_HOME/zsh/completions" $fpath)
 autoload -Uz compinit
+zcompdump="$XDG_CONFIG_HOME/zsh/.zcompdump"
 
-if [[ -n ~/.cache/zcompdump(#qN.mh+24) ]]; then
-  compinit
+if [[ -n ${zcompdump}(#qN.mh+24) ]]; then
+  compinit -d "$zcompdump"
 else
-  compinit -C
+  compinit -C -d "$zcompdump"
 fi
 zinit cdreplay -q
 
@@ -115,18 +131,26 @@ export FZF_ALT_C_OPTS="--walker-skip .git,node_modules,target --preview 'eza -T 
 # ------------- #
 #  Extras: bun, zoxide, uv, sesh
 # ------------- #
-source ~/.config/zsh/completions/_bun
-source ~/.config/zsh/completions/_sesh
 
-zoxide init --cmd cd zsh | source /dev/stdin
+(( $+commands[zoxide] )) && eval "$(zoxide init --cmd cd zsh)"
+[[ -r "$HOME/.local/bin/env" ]] && . "$HOME/.local/bin/env"
 
-. "$HOME/.local/share/../bin/env"
+_cache_completion() {
+  emulate -L zsh
+  local name="$1"
+  shift
+  local cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/completions"
+  local cache_file="$cache_dir/$name.zsh"
 
-_uv_lazy() {
-  unset -f uv uvx
-  eval "$(uv generate-shell-completion zsh)"
-  eval "$(uvx --generate-shell-completion zsh)"
+  [[ -d "$cache_dir" ]] || mkdir -p "$cache_dir" 2>/dev/null || return
+  if [[ ! -s "$cache_file" ]] || [[ -n ${commands[$1]} && "$commands[$1]" -nt "$cache_file" ]]; then
+    "$@" >| "$cache_file" 2>/dev/null
+  fi
+  [[ -r "$cache_file" ]] && source "$cache_file"
 }
+
+(( $+commands[uv] )) && _cache_completion uv uv generate-shell-completion zsh
+(( $+commands[uvx] )) && _cache_completion uvx uvx --generate-shell-completion zsh
 
 # To customize prompt, run `p10k configure` or edit ~/hypr-dots/.config/zsh/.p10k.zsh.
 [[ ! -f ~/hypr-dots/.config/zsh/.p10k.zsh ]] || source ~/hypr-dots/.config/zsh/.p10k.zsh
@@ -150,15 +174,14 @@ alias lz="lazygit"
 alias c="clear" 
 alias rm="trash -v" 
 alias ff="pokeget random --hide-name | fastfetch --file -"
-alias uv='_uv_lazy; uv'
-alias uvx='_uv_lazy; uvx'
 
 # Changing "ls" to "eza"
 alias ls='eza --icons --color=always --group-directories-first' 
 alias la='eza -abhHlS --icons --color=always --group-directories-first' 
 alias ll='eza -a --icons --color=always --group-directories-first' 
 alias l='eza -F --icons --color=always --group-directories-first' 
-alias l.='eza -a | grep -E "^\."' alias lt="eza -aT --icons --color=always --level=2"
+alias l.='eza -a | grep -E "^\."'
+alias lt="eza -aT --icons --color=always --level=2"
 
 # help with bat 
 alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
@@ -180,4 +203,13 @@ alias gl="git log"
 alias gsw="git switch"
 
 # added nvm
-source /usr/share/nvm/init-nvm.sh
+_load_nvm() {
+  unset -f nvm node npm npx corepack
+  [[ -r /usr/share/nvm/init-nvm.sh ]] && source /usr/share/nvm/init-nvm.sh
+}
+
+nvm() { _load_nvm; nvm "$@"; }
+node() { _load_nvm; node "$@"; }
+npm() { _load_nvm; npm "$@"; }
+npx() { _load_nvm; npx "$@"; }
+corepack() { _load_nvm; corepack "$@"; }
