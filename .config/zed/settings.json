@@ -145,7 +145,7 @@
   "project_panel": {
     "dock": "right",
     "button": true,
-    "hide_hidden": false,
+    "hide_hidden": true,
     "hide_root": true,
     "auto_fold_dirs": false,
     "starts_open": false,

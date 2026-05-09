@@ -180,4 +180,13 @@ require("searchjump"):setup({
 -- 	untracked_color = catppuccin_palette.pink,
 -- })
 
-require("git"):setup()
+require("git"):setup({
+	theme = {
+		ignored = ui.Style():fg(catppuccin_palette.overlay0),
+		untracked = ui.Style():fg(catppuccin_palette.mauve),
+		modified = ui.Style():fg(catppuccin_palette.yellow),
+		added = ui.Style():fg(catppuccin_palette.green),
+		deleted = ui.Style():fg(catppuccin_palette.red),
+		updated = ui.Style():fg(catppuccin_palette.peach),
+	},
+})

@@ -36,7 +36,7 @@ export PAGER=bat
 ZINIT_HOME="${XDG_DATA_HOME}/zinit/zinit.git"
 if [[ ! -r "$ZINIT_HOME/zinit.zsh" ]]; then
   mkdir -p "${ZINIT_HOME:h}"
-  git clone --depth=1 https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+  git clone --quiet --depth=1 https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 source "$ZINIT_HOME/zinit.zsh"
 
@@ -55,7 +55,6 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit ice wait lucid blockf
 zinit light Aloxaf/fzf-tab
 
-# source ~/hypr-dots/manual-zsh-plugins/zcolors/zcolors.plugin.zsh
 
 # 3. Run zcolors
 if (( $+commands[zcolors] )) && [[ ! -f ${XDG_CACHE_HOME:-$HOME/.cache}/zcolors ]]; then
@@ -69,9 +68,28 @@ fi
 # ------------- #
 setopt extendedglob
 typeset -U fpath
-fpath=("$XDG_CONFIG_HOME/zsh/completions" $fpath)
+ZSH_COMPLETION_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/completions"
+
+_cache_completion() {
+  emulate -L zsh
+  local name="$1"
+  shift
+  local cache_file="$ZSH_COMPLETION_CACHE_DIR/_$name"
+
+  [[ -d "$ZSH_COMPLETION_CACHE_DIR" ]] || mkdir -p "$ZSH_COMPLETION_CACHE_DIR" 2>/dev/null || return
+  [[ -w "$ZSH_COMPLETION_CACHE_DIR" ]] || return
+  if [[ ! -s "$cache_file" ]] || [[ -n ${commands[$1]} && "$commands[$1]" -nt "$cache_file" ]]; then
+    "$@" >| "$cache_file" 2>/dev/null
+  fi
+}
+
+(( $+commands[uv] )) && _cache_completion uv uv generate-shell-completion zsh
+(( $+commands[uvx] )) && _cache_completion uvx uvx --generate-shell-completion zsh
+
+fpath=("$XDG_CONFIG_HOME/zsh/completions" "$ZSH_COMPLETION_CACHE_DIR" $fpath)
 autoload -Uz compinit
-zcompdump="$XDG_CONFIG_HOME/zsh/.zcompdump"
+zcompdump="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump-${HOST}-${ZSH_VERSION}"
+[[ -d "${zcompdump:h}" ]] || mkdir -p "${zcompdump:h}" 2>/dev/null
 
 if [[ -n ${zcompdump}(#qN.mh+24) ]]; then
   compinit -d "$zcompdump"
@@ -134,23 +152,6 @@ export FZF_ALT_C_OPTS="--walker-skip .git,node_modules,target --preview 'eza -T 
 
 (( $+commands[zoxide] )) && eval "$(zoxide init --cmd cd zsh)"
 [[ -r "$HOME/.local/bin/env" ]] && . "$HOME/.local/bin/env"
-
-_cache_completion() {
-  emulate -L zsh
-  local name="$1"
-  shift
-  local cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/completions"
-  local cache_file="$cache_dir/$name.zsh"
-
-  [[ -d "$cache_dir" ]] || mkdir -p "$cache_dir" 2>/dev/null || return
-  if [[ ! -s "$cache_file" ]] || [[ -n ${commands[$1]} && "$commands[$1]" -nt "$cache_file" ]]; then
-    "$@" >| "$cache_file" 2>/dev/null
-  fi
-  [[ -r "$cache_file" ]] && source "$cache_file"
-}
-
-(( $+commands[uv] )) && _cache_completion uv uv generate-shell-completion zsh
-(( $+commands[uvx] )) && _cache_completion uvx uvx --generate-shell-completion zsh
 
 # To customize prompt, run `p10k configure` or edit ~/hypr-dots/.config/zsh/.p10k.zsh.
 [[ ! -f ~/hypr-dots/.config/zsh/.p10k.zsh ]] || source ~/hypr-dots/.config/zsh/.p10k.zsh
