@@ -1,0 +1,69 @@
+# ~/.config/ghostty/config.ghostty
+
+# Appearance
+custom-shader = shaders/cursor_trail.glsl
+theme = Catppuccin Mocha
+window-theme = dark
+window-decoration = auto
+window-padding-x = 10
+window-padding-y = 4
+window-padding-balance = true
+window-save-state = always
+window-show-tab-bar = auto
+window-new-tab-position = current
+background-opacity = 1.00
+background-blur = true
+unfocused-split-opacity = 0.88
+
+# Typography
+font-family = JetBrainsMono Nerd Font
+font-size = 14.5
+font-feature = calt
+font-feature = liga
+font-feature = dlig
+font-synthetic-style = bold,italic,bold-italic
+font-shaping-break = cursor
+adjust-cell-height = 30%
+adjust-cell-width = 5%
+
+# Cursor and selection
+cursor-style = block
+cursor-style-blink = true
+cursor-click-to-move = true
+copy-on-select = true
+selection-clear-on-copy = true
+
+# Scrolling, mouse, and links
+scrollback-limit = 20000000
+mouse-hide-while-typing = true
+mouse-scroll-multiplier = precision:1,discrete:4
+link-url = true
+link-previews = true
+
+# Clipboard safety
+clipboard-read = allow
+clipboard-write = allow
+clipboard-trim-trailing-spaces = true
+clipboard-paste-protection = true
+clipboard-paste-bracketed-safe = true
+
+# Shell integration
+command = /usr/bin/zsh --login -c "tmux a -t 'Home ' || tmux new -s 'Home '"
+
+shell-integration = detect
+shell-integration-features = cursor,no-sudo,title,no-ssh-env,no-ssh-terminfo,path
+window-inherit-working-directory = true
+window-inherit-font-size = true
+
+# Window behavior
+confirm-close-surface = false
+quit-after-last-window-closed = true
+resize-overlay = after-first
+resize-overlay-position = center
+resize-overlay-duration = 750ms
+
+# GTK/Linux integration
+gtk-single-instance = detect
+gtk-titlebar = true
+gtk-tabs-location = top
+gtk-wide-tabs = true

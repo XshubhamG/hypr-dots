@@ -112,8 +112,8 @@ zstyle ':completion:*' matcher-list \
 
 zstyle ':fzf-tab:*' fzf-flags --height=50% --pointer '»' \
     --color 'pointer:green,fg+:-1,bg+:-1,hl+:-1,marker:-1'
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --icons --color=always -a $realpath'
-zstyle ':fzf-tab:complete:eza:*' fzf-preview 'eza -1 --icons --color=always -a $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'env -u LS_COLORS eza -1 --icons --color=always -a $realpath'
+zstyle ':fzf-tab:complete:eza:*' fzf-preview 'env -u LS_COLORS eza -1 --icons --color=always -a $realpath'
 zstyle ':fzf-tab:complete:bat:*' fzf-preview 'bat --color=always --theme=base16 $realpath'
 zstyle ':fzf-tab:complete:nvim:*' fzf-preview 'bat --color=always --theme=base16 $realpath'
 zstyle ':fzf-tab:*' fzf-bindings 'space:accept'
@@ -143,7 +143,7 @@ export FZF_CTRL_T_OPTS="--preview 'bat --theme base16 --color=always --line-rang
 
 # Alt-C command
 export FZF_ALT_C_COMMAND="fd --type d . --color=never --hidden --exclude .git --exclude node_modules"
-export FZF_ALT_C_OPTS="--walker-skip .git,node_modules,target --preview 'eza -T --icons --color=always {} | head -n 50'"
+export FZF_ALT_C_OPTS="--walker-skip .git,node_modules,target --preview 'env -u LS_COLORS eza -T --icons --color=always {} | head -n 50'"
 [ -f ~/hypr-dots/fzf/.fzf.zsh ] && source ~/hypr-dots/fzf/.fzf.zsh
 
 # ------------- #
@@ -177,12 +177,12 @@ alias rm="trash -v"
 alias ff="pokeget random --hide-name | fastfetch --file -"
 
 # Changing "ls" to "eza"
-alias ls='eza --icons --color=always --group-directories-first' 
-alias la='eza -abhHlS --icons --color=always --group-directories-first' 
-alias ll='eza -a --icons --color=always --group-directories-first' 
-alias l='eza -F --icons --color=always --group-directories-first' 
-alias l.='eza -a | grep -E "^\."'
-alias lt="eza -aT --icons --color=always --level=2"
+alias ls='env -u LS_COLORS eza --icons --color=always --group-directories-first' 
+alias la='env -u LS_COLORS eza -abhHlS --icons --color=always --group-directories-first' 
+alias ll='env -u LS_COLORS eza -a --icons --color=always --group-directories-first' 
+alias l='env -u LS_COLORS eza -F --icons --color=always --group-directories-first' 
+alias l.='env -u LS_COLORS eza -a | grep -E "^\."'
+alias lt="env -u LS_COLORS eza -aT --icons --color=always --level=2"
 
 # help with bat 
 alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
