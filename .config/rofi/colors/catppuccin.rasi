@@ -1,16 +1,10 @@
-/**
- *
- * Author : Aditya Shakya (adi1090x)
- * Github : @adi1090x
- * 
- * Colors
- **/
+@import "~/.config/hypr/colors/mocha/mocha.rasi"
 
 * {
-    background:     #1E1D2FFF;
-    background-alt: #282839FF;
-    foreground:     #D9E0EEFF;
-    selected:       #7AA2F7FF;
-    active:         #ABE9B3FF;
-    urgent:         #F28FADFF;
+    background:     @base;
+    background-alt: @surface0;
+    foreground:     @text;
+    selected:       @lavender;
+    active:         @green;
+    urgent:         @red;
 }

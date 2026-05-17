@@ -17,7 +17,7 @@ unfocused-split-opacity = 0.88
 
 # Typography
 font-family = JetBrainsMono Nerd Font
-font-size = 14.5
+font-size = 15
 font-feature = calt
 font-feature = liga
 font-feature = dlig
@@ -27,8 +27,8 @@ adjust-cell-height = 30%
 adjust-cell-width = 5%
 
 # Cursor and selection
-cursor-style = block
-cursor-style-blink = true
+cursor-style = bar
+cursor-style-blink = false
 cursor-click-to-move = true
 copy-on-select = true
 selection-clear-on-copy = true

@@ -1,14 +1,15 @@
 @import "mocha.css";
 * {
+  all: unset;
   font-family: "JetBrainsMono Nerd Font Propo";
   font-size: 14px;
 }
 
 window#waybar {
-  background-color: @base;
-  color: #ffffff;
-  border-radius: 5px;
-  padding: 15px 7px;
+  background-color: @center-bg;
+  color: @text;
+  border-radius: 0;
+  padding: 15px;
   transition-property: background-color;
   transition-duration: 0.5s;
 }
@@ -20,40 +21,40 @@ window#waybar.hidden {
 #workspaces button {
   font-size: 20px;
   padding: 0 12px;
-  color: @subtext0;
+  color: @text-muted;
 }
 
 #workspaces button:nth-child(1):not(.empty) {
-  color: @red;
+  color: @accent-1;
 }
 
 #workspaces button:nth-child(2):not(.empty) {
-  color: @mauve;
+  color: @accent-2;
 }
 
 #workspaces button:nth-child(3):not(.empty) {
-  color: @blue;
+  color: @accent-3;
 }
 
 #workspaces button:nth-child(4):not(.empty) {
-  color: @green;
+  color: @accent-4;
 }
 #workspaces button:nth-child(5):not(.empty) {
-  color: @yellow;
+  color: @accent-5;
 }
 #workspaces button:nth-child(6):not(.empty) {
-  color: @rosewater;
+  color: @accent-6;
 }
 
 #clock {
-  color: @peach;
+  color: @accent-peach;
 }
 
 #battery {
-  color: @green;
+  color: @accent-4;
+  padding: 0 10px 0 10px;
 }
 
-#battery,
 #cpu,
 #memory,
 #temperature,
@@ -68,7 +69,7 @@ window#waybar.hidden {
 }
 
 #memory {
-  color: @yellow;
+  color: @accent-5;
 }
 
 #window,
@@ -93,12 +94,12 @@ window#waybar.hidden {
 @keyframes blink {
   to {
     background-color: #ffffff;
-    color: @base;
+    color: @on-accent;
   }
 }
 
 label:focus {
-  background-color: @base;
+  background-color: @focus-bg;
 }
 
 #network.disconnected {
@@ -106,7 +107,7 @@ label:focus {
 }
 
 #pulseaudio {
-  color: @pink;
+  color: @accent-pink;
 }
 
 #pulseaudio.muted {
@@ -115,27 +116,27 @@ label:focus {
 }
 
 #custom-power {
-  color: @base;
-  background-color: @red;
+  color: @on-accent;
+  background-color: @urgent;
 }
 
 #bluetooth {
-  color: @teal;
+  color: @accent-teal;
 }
 
 #bluetooth .icon {
-  color: @base;
-  background-color: @blue;
+  color: @on-accent;
+  background-color: @accent-blue;
   border-radius: 5em / 5em;
   padding: 0 10px;
 }
 
 #network {
-  color: @mauve;
+  color: @accent-2;
 }
 
 #custom-notification {
-  color: @lavender;
+  color: @accent-3;
 }
 
 #tray {

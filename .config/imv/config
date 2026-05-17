@@ -1,7 +1,7 @@
 # Default config for imv
 
 [options]
-background = #11111E
+background = #11111b
 # Suppress built-in key bindings, and specify them explicitly in this
 # config file.
 suppress_default_binds = true

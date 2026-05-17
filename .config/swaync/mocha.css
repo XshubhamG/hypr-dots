@@ -6,17 +6,6 @@
 @define-color text-muted                @subtext0;
 @define-color focus-bg                  @base;
 @define-color urgent                    @red;
-@define-color accent-1                  @red;
-@define-color accent-2                  @mauve;
-@define-color accent-3                  @blue;
-@define-color accent-4                  @green;
-@define-color accent-5                  @yellow;
-@define-color accent-6                  @rosewater;
-@define-color accent-blue               @blue;
-@define-color accent-peach              @peach;
-@define-color accent-pink               @pink;
-@define-color accent-teal               @teal;
-@define-color on-accent                 @base;
 
 @define-color notification-bg           alpha(@base, 0.95);
 @define-color center-notification-bg    @surface0;

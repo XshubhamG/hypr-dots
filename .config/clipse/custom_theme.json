@@ -1,12 +1,12 @@
 {
   "useCustomTheme": true,
-  "TitleFore": "#d9e0ee",
+  "TitleFore": "#cdd6f4",
   "TitleBack": "#1e1e2e",
   "TitleInfo": "#89b4fa",
   "NormalTitle": "#cba6f7",
   "DimmedTitle": "#6c7086",
   "SelectedTitle": "#cba6f7",
-  "NormalDesc": "#cdd4f6",
+  "NormalDesc": "#cdd6f4",
   "DimmedDesc": "#45475a",
   "SelectedDesc": "#cba6f7",
   "StatusMsg": "#a6e3a1",
@@ -18,11 +18,11 @@
   "FilterInfo": "#89b4fa",
   "FilterText": "#f5e0dc",
   "FilterCursor": "#f9e2af",
-  "HelpKey": "#d9e0ee",
+  "HelpKey": "#cdd6f4",
   "HelpDesc": "#6c7086",
   "PageActiveDot": "#b4befe",
   "PageInactiveDot": "#313244",
   "DividerDot": "#b4befe",
-  "PreviewedText": "#d9e0ee",
+  "PreviewedText": "#cdd6f4",
   "PreviewBorder": "#b4befe"
 }

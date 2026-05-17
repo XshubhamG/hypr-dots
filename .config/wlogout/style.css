@@ -1,11 +1,13 @@
+@import url("../hypr/colors/mocha/mocha.css");
+
 * {
   background-image: none;
 }
 window {
   font-family: JetBrainsMono Nerd Font;
   font-size: 12pt;
-  color: #cdd6f4;
-  background-color: rgba(17, 17, 27, 0.7);
+  color: @text;
+  background-color: alpha(@crust, 0.7);
 }
 
 button {
@@ -13,10 +15,10 @@ button {
   background-position: center;
   background-size: 50%;
   border: none;
-  color: #fbf1c7;
+  color: @text;
   text-shadow: none;
-  border-radius: 20px 20px 20px 20px;
-  background-color: rgba(1, 121, 111, 0);
+  border-radius: 20px;
+  background-color: transparent;
   margin: 5px;
   transition:
     box-shadow 0.2s ease-in-out,
@@ -29,7 +31,7 @@ button {
 #lock:focus,
 #lock:hover {
   background-image: url('./icons/lock-hover.png');
-  background-color: #6da977;
+  background-color: @green;
 }
 
 #logout {
@@ -38,7 +40,7 @@ button {
 #logout:focus,
 #logout:hover {
   background-image: url('./icons/logout-hover.png');
-  background-color: #e7625c;
+  background-color: @red;
 }
 
 #suspend {
@@ -47,7 +49,7 @@ button {
 #suspend:focus,
 #suspend:hover {
   background-image: url('./icons/sleep-hover.png');
-  background-color: #59a298;
+  background-color: @teal;
 }
 
 #shutdown {
@@ -56,7 +58,7 @@ button {
 #shutdown:focus,
 #shutdown:hover {
   background-image: url('./icons/power-hover.png');
-  background-color: #e88146;
+  background-color: @peach;
 }
 
 #reboot {
@@ -65,5 +67,5 @@ button {
 #reboot:focus,
 #reboot:hover {
   background-image: url('./icons/restart-hover.png');
-  background-color: #d97f91;
+  background-color: @pink;
 }
