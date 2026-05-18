@@ -142,3 +142,56 @@ label:focus {
 #tray {
   padding: 0 10px;
 }
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: @urgent;
+}
+
+#tray menu {
+  font-family: "JetBrainsMono Nerd Font Propo";
+  background-color: @base;
+  border: 1px solid @surface0;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+#tray menuitem {
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+#tray menuitem:hover {
+  background-color: @surface0;
+}
+
+tooltip {
+  background: @base;
+  border: 1px solid @surface0;
+  border-radius: 8px;
+}
+
+tooltip label {
+  color: @text;
+  padding: 8px;
+}
+
+menu {
+  background: @base;
+  border: 1px solid @surface0;
+  border-radius: 8px;
+}
+
+menuitem {
+  color: @text;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+menuitem:hover {
+  background: @surface0;
+}

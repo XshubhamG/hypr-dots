@@ -27,8 +27,8 @@ adjust-cell-height = 30%
 adjust-cell-width = 5%
 
 # Cursor and selection
-cursor-style = bar
-cursor-style-blink = false
+cursor-style = block
+cursor-style-blink = true
 cursor-click-to-move = true
 copy-on-select = true
 selection-clear-on-copy = true

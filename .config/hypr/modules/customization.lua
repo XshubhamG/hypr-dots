@@ -4,9 +4,6 @@
 
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 
--- Source colorscheme variables
-hl.exec_cmd("hyprctl keyword source ~/.config/hypr/colors/mocha/mocha.conf")
-
 hl.config({
 	general = {
 		border_size = 0,

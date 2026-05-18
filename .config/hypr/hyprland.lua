@@ -1,5 +1,7 @@
 local config_dir = os.getenv("HOME") .. "/.config/hypr/modules/"
 
+colors = dofile(config_dir .. "colors.lua")
+
 dofile(config_dir .. "monitors.lua")
 dofile(config_dir .. "autostart.lua")
 dofile(config_dir .. "env.lua")

@@ -11,7 +11,12 @@
 
 <br>
 
-https://github.com/XshubhamG/hypr-dots/raw/main/assets/tour.mp4
+<p align="center">
+  <video src="https://github.com/XshubhamG/hypr-dots/raw/main/assets/tour.mp4"
+         controls
+         width="100%">
+  </video>
+</p>
 
 </div>
 
