@@ -12,10 +12,9 @@
 <br>
 
 <p align="center">
-<video src="https://raw.githubusercontent.com/xshubhamg/hypr-dots/main/assets/tour.mp4"
-       controls
-       width="100%">
-</video>
+<img src="https://raw.githubusercontent.com/xshubhamg/hypr-dots/main/assets/tour.gif"
+     alt="Hyprland desktop tour"
+     width="100%" />
 </p>
 
 </div>
@@ -28,14 +27,16 @@
 
 | | |
 |:---:|:---:|
-| ![Rofi](assets/screenshots/02-rofi.png) | ![SDDM](assets/screenshots/03-sddm-theme.png) |
-| **Rofi Launcher** — `Super + R` | **SDDM Login Theme** — Catppuccin styled greeter |
-| ![wlogout](assets/screenshots/04-hyprlock.png) | ![Waypaper](assets/screenshots/05-waypaper.png) |
-| **wlogout** — `Super + Shift + M` | **Waypaper** — `Super + W` |
-| ![Yazi](assets/screenshots/06-yazi.png) | ![Neovim](assets/screenshots/07-neovim.png) |
-| **Yazi File Manager** — with image previews | **Neovim** — LazyVim dashboard |
-| ![Zen Browser](assets/screenshots/08-zen-browser.png) | |
-| **Zen Browser** — Catppuccin themed | |
+| ![Desktop](assets/screenshots/01-desktop.png) | ![Rofi](assets/screenshots/02-rofi.png) |
+| **Desktop** — Hyprland overview | **Rofi Launcher** — `Super + R` |
+| ![SDDM](assets/screenshots/03-sddm-theme.png) | ![hyprlock](assets/screenshots/04-hyprlock.png) |
+| **SDDM Login Theme** — Catppuccin styled greeter | **hyprlock** — lock screen |
+| ![Waypaper](assets/screenshots/05-waypaper.png) | ![Yazi](assets/screenshots/06-yazi.png) |
+| **Waypaper** — `Super + W` | **Yazi File Manager** — with image previews |
+| ![Discord](assets/screenshots/07-discord.png) | ![Zen Browser](assets/screenshots/08-zen-browser.png) |
+| **Discord** — themed app setup | **Zen Browser** — Catppuccin themed |
+| ![Zeditor](assets/screenshots/09-zeditor.png) | |
+| **Zeditor** — editor setup | |
 
 </div>
 
