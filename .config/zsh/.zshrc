@@ -32,3 +32,6 @@ source "$ZDOTDIR/utils.zsh"
 
 # starship
 eval "$(starship init zsh)"
+
+# bun completions
+[ -s "/home/xshubhamg/.bun/_bun" ] && source "/home/xshubhamg/.bun/_bun"

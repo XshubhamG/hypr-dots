@@ -53,9 +53,9 @@ hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("scratchpad"))
 hl.bind(mainMod .. " + CTRL + S", hl.dsp.window.move({ workspace = "special:scratchpad", silent = true }))
 
 -- Screenshots
-hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("hyprshot -m output -m eDP-1"))
+hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("hyprshot -m output -m eDP-1 -o ~/Pictures/Screenshots"))
 hl.bind("Print", hl.dsp.exec_cmd("hyprshot -m region --raw | satty --filename -"))
-hl.bind(mainMod .. " + SHIFT + Print", hl.dsp.exec_cmd("hyprshot -m window"))
+hl.bind(mainMod .. " + SHIFT + Print", hl.dsp.exec_cmd("hyprshot -m window -o ~/Pictures/Screenshots"))
 
 -- Window Focus (Vim keys)
 -- █▀▀ █▀█ █▀▀ █░█ █▀

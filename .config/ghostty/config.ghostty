@@ -16,15 +16,15 @@ background-blur = true
 unfocused-split-opacity = 0.88
 
 # Typography
-font-family = JetBrainsMono Nerd Font
-font-size = 15
+font-family = Iosevka Nerd Font
+font-size = 17
 font-feature = calt
 font-feature = liga
 font-feature = dlig
 font-synthetic-style = bold,italic,bold-italic
 font-shaping-break = cursor
 adjust-cell-height = 30%
-adjust-cell-width = 5%
+adjust-cell-width = 7%
 
 # Cursor and selection
 cursor-style = block

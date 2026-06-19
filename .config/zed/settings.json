@@ -75,9 +75,9 @@
 
   // ─── Typography ────────────────────────────────────────────────────────────
   "ui_font_size": 20.0,
-  "buffer_font_size": 20.0,
+  "buffer_font_size": 24.0,
   "ui_font_family": "Poppins",
-  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
+  "buffer_font_family": "Iosevka Nerd Font",
   "buffer_font_weight": 300,
   "agent_ui_font_size": 18,
   "agent_buffer_font_size": 18,
