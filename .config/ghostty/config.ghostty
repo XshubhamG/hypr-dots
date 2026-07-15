@@ -2,7 +2,7 @@
 
 # Appearance
 custom-shader = shaders/cursor_trail.glsl
-theme = Catppuccin Mocha
+theme = TokyoNight Night
 window-theme = dark
 window-decoration = auto
 window-padding-x = 10
@@ -24,7 +24,7 @@ font-feature = dlig
 font-synthetic-style = bold,italic,bold-italic
 font-shaping-break = cursor
 adjust-cell-height = 30%
-adjust-cell-width = 7%
+adjust-cell-width = 1%
 
 # Cursor and selection
 cursor-style = block
@@ -48,7 +48,7 @@ clipboard-paste-protection = true
 clipboard-paste-bracketed-safe = true
 
 # Shell integration
-command = /usr/bin/zsh --login -c "tmux a -t 'Home ' || tmux new -s 'Home '"
+command = tmux new-session -A -s "Home "
 
 shell-integration = detect
 shell-integration-features = cursor,no-sudo,title,no-ssh-env,no-ssh-terminfo,path

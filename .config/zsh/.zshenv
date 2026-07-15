@@ -26,6 +26,10 @@ export EDITOR=nvim
 # PAGER
 export MANPAGER='nvim +Man!'
 export PAGER=bat
+export LESS='-R'
 
 # Starship
 export STARSHIP_CONFIG="$ZDOTDIR/starship.toml"
+
+# load environment variables
+source "$HOME/.local/bin/env"

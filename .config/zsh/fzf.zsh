@@ -9,7 +9,7 @@ export FZF_DEFAULT_COMMAND="fd --type f --hidden --exclude .git --exclude node_m
 
 # Ctrl-T command
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_CTRL_T_OPTS="--preview 'bat --theme base16 --color=always --line-range :150 {}'"
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :150 {}'"
 
 # Alt-C command
 export FZF_ALT_C_COMMAND="fd --type d . --color=never --hidden --exclude .git --exclude node_modules"

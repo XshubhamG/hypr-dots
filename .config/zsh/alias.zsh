@@ -32,9 +32,9 @@ alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
 alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
 # core utils
-alias grep="rg --color=auto"
+alias rg="rg --color=auto"
 alias diff="diff --color=auto"
-alias df= 'df -h'
+alias df='df -h'
 
 #aur helper
 alias yy='yay' 
@@ -46,7 +46,6 @@ alias yrns='yay -Rns'
 alias gs="git status"
 alias ga="git add"
 alias gc="git commit"
-alias gp="git push"
 alias gp="git push"
 alias gl="git log"
 alias gsw="git switch"

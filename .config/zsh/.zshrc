@@ -1,9 +1,10 @@
 # ------------- #
 #  Shell options
 # ------------- #
-setopt autocd magicequalsubst numericglobsort promptsubst
-setopt appendhistory sharehistory hist_ignore_dups hist_find_no_dups hist_ignore_all_dups hist_ignore_space hist_save_no_dups
-HISTSIZE=10000
+setopt autocd magicequalsubst numericglobsort promptsubst completeinword
+setopt hist_ignore_dups hist_find_no_dups hist_ignore_all_dups hist_ignore_space hist_save_no_dups
+setopt appendhistory sharehistory interactivecomments extendedhistory
+HISTSIZE=100000
 HISTFILE="$XDG_STATE_HOME/zsh/history"
 SAVEHIST=$HISTSIZE
 
@@ -23,15 +24,12 @@ eval "$(zoxide init --cmd cd zsh)"
 # ------------- #
 # Modularized config
 # ------------- #
-source "$HOME/.local/bin/env"
-source "$ZDOTDIR/completion.zsh"
+
 source "$ZDOTDIR/plugins.zsh"
+source "$ZDOTDIR/completion.zsh"
 source "$ZDOTDIR/fzf.zsh"
 source "$ZDOTDIR/alias.zsh"
 source "$ZDOTDIR/utils.zsh"
 
 # starship
 eval "$(starship init zsh)"
-
-# bun completions
-[ -s "/home/xshubhamg/.bun/_bun" ] && source "/home/xshubhamg/.bun/_bun"
