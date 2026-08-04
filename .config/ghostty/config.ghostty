@@ -5,7 +5,7 @@ custom-shader = shaders/cursor_trail.glsl
 theme = TokyoNight Night
 window-theme = dark
 window-decoration = auto
-window-padding-x = 10
+window-padding-x = 4
 window-padding-y = 4
 window-padding-balance = true
 window-save-state = always
@@ -16,15 +16,19 @@ background-blur = true
 unfocused-split-opacity = 0.88
 
 # Typography
-font-family = Iosevka Nerd Font
-font-size = 17
+font-family = JetBrainsMono Nerd Font
+font-style = regular
+font-style-bold = bold
+font-style-italic = italic
+font-style-bold-italic = bold-italic
+font-size = 15
 font-feature = calt
 font-feature = liga
 font-feature = dlig
 font-synthetic-style = bold,italic,bold-italic
 font-shaping-break = cursor
 adjust-cell-height = 30%
-adjust-cell-width = 1%
+adjust-cell-width = 3%
 
 # Cursor and selection
 cursor-style = block
@@ -49,9 +53,8 @@ clipboard-paste-bracketed-safe = true
 
 # Shell integration
 command = tmux new-session -A -s "Home "
-
 shell-integration = detect
-shell-integration-features = cursor,no-sudo,title,no-ssh-env,no-ssh-terminfo,path
+shell-integration-features = no-cursor,sudo,title,no-ssh-env,no-ssh-terminfo,path
 window-inherit-working-directory = true
 window-inherit-font-size = true
 
@@ -61,9 +64,3 @@ quit-after-last-window-closed = true
 resize-overlay = after-first
 resize-overlay-position = center
 resize-overlay-duration = 750ms
-
-# GTK/Linux integration
-gtk-single-instance = detect
-gtk-titlebar = true
-gtk-tabs-location = top
-gtk-wide-tabs = true

@@ -21,27 +21,10 @@
     "trust_all_worktrees": true,
   },
   "outline_panel": {
-    "dock": "left",
+    "dock": "right",
   },
   "collaboration_panel": {
-    "dock": "left",
-  },
-  "lsp": {
-    "vtsls": {
-      "settings": {
-        "typescript": {
-          "updateImportsOnFileMove": {
-            "enabled": "always",
-          },
-        },
-        "javascript": {
-          "updateImportsOnFileMove": {
-            "enabled": "always",
-          },
-        },
-      },
-      "enable_lsp_tasks": true,
-    },
+    "dock": "right",
   },
   "show_edit_predictions": false,
   "theme": {
@@ -74,8 +57,8 @@
   },
 
   // ─── Typography ────────────────────────────────────────────────────────────
-  "ui_font_size": 20.0,
-  "buffer_font_size": 24.0,
+  "ui_font_size": 18.0,
+  "buffer_font_size": 22.0,
   "ui_font_family": "Poppins",
   "buffer_font_family": "Iosevka Nerd Font",
   "buffer_font_weight": 300,
@@ -152,7 +135,7 @@
     "git_status": false,
   },
   "git_panel": {
-    "dock": "left",
+    "dock": "right",
     "tree_view": true,
   },
   "notification_panel": {
@@ -185,6 +168,11 @@
       "type": "registry",
     },
     "codex-acp": {
+      "default_config_options": {
+        "reasoning_effort": "medium",
+        "mode": "agent-full-access",
+        "model": "gpt-5.4-mini"
+      },
       "type": "registry",
     },
     "gemini": {
